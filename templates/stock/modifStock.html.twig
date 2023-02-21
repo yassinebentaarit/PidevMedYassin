@@ -1,0 +1,59 @@
+{% extends 'base.html.twig'%}
+
+{% block body %}
+    <div style= "display: flex; align-items: center;justify-content:center; margin-top:100px;padding:10px;">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">ajout d'un p</h5>
+
+              <!-- General Form Elements -->
+              {{ form_start(f) }}
+                <div class="row mb-5">
+                  <label for="inputText" class="col-sm-3 col-form-label">Produit</label>
+                  <div class="col-sm-3">
+                    {{ form_widget(f.produit,{'attr':{'class':'form-control'}}) }}
+                  </div>
+
+                </div>
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-3 col-form-label">Cat</label>
+                  <div class="col-sm-10">
+                    {{ form_widget(f.categorie,{'attr':{'class':'form-control'}}) }}
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-3 col-form-label">Quantite</label>
+                  <div class="col-sm-10">
+                    {{ form_widget(f.quantite,{'attr':{'class':'form-control'}}) }}
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-6 col-form-label">Quantite disponible</label>
+                  <div class="col-sm-10">
+                    {{ form_widget(f.quantiteDisponible,{'attr':{'class':'form-control'}}) }}
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-6 col-form-label">Date d'expiration</label>
+                  <div class="col-sm-10">
+                      {{ form_widget(f.dateExpiration, {'label': 'Date d\'expiration', 'widget': 'text', 'html5': true, 'empty_data' :null,}) }} 
+                  </div>
+                </div>
+                  
+                  <div class="col-sm-10" style="display:flex; align-items:center; justify-content:center">
+                  
+                    {{ form_widget(f.Ajouter,{'attr':{'class':'btn btn-primary'}}) }}
+                  </div>
+
+              {{ form_end(f) }}
+
+            </div>
+          </div>
+
+        </div> 
+
+{% endblock %}

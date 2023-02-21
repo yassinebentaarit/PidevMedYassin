@@ -1,0 +1,65 @@
+    {% extends 'base.html.twig' %}
+
+    {% block title %}Ici Ton Stock{% endblock %}
+
+    {% block body %}
+<div class="row" style="display: flex; align-items: center; justify-content:center;margin-top:100px;margin-left:200px">
+    <div class="col-lg-10">
+
+    <div class="card">
+        <div class="card-body">
+            <a href="{{path('add_stock')}}"> <i class="ri-arrow-left-circle-fill" style="font-size: 50px;"></i></a>
+        <h2 class="col-sm-4">Table de Stock</h2>
+        <div style="display:flex;align-items: center; justify-content:center">
+
+        {#{% if formattedDate is null %}#}
+        <!-- Default Table -->
+        <table class="table">
+            <thead>           
+                <th scope="col"> IdProduit </th>
+                <th scope="col"> Produit </th>
+                <th scope="col"> Categorie </th>
+                <th scope="col"> Quantite Total</th>
+                <th scope="col"> Quantite Disponible</th>
+                <th scope="col"> dateExpiration</th>  
+                <th scope="col"> Modification</th>
+                <th scope="col"> suppression</th>
+            </thead>
+            <tbody>
+
+                {% for stock in s %}
+                    
+                        
+                    
+                    <tr>
+                        <td > {{stock.id}}</td>
+                        <td > {{stock.produit}}</td>
+                        <td > {{stock.categorie}} </td>
+                        <td > {{stock.quantite}}</td>
+                        <td > {{stock.quantiteDisponible}}</td>
+                        <td > {{stock.dateExpiration|date('Y-M-d')}}</td>
+                        {#<td > {{formattedDate}}</td>#}
+                        <td >
+                            <a class = 'btn btn-success' href="{{path ('modif_stock',{'id':stock.id}) }}">Modifier </a>
+                        </td>
+                        
+                        <td>
+                            <a class = 'btn btn-danger' href="{{path ('supp_stock',{'id':stock.id}) }}">Supprimer </a>
+                        </td>
+                    </tr>    
+                {% endfor %}
+                
+            </tbody>
+        </table>
+    <!-- End Default Table Example -->
+    </div>
+    {#{% endif %}#}
+    <br> 
+    
+        <a class='btn btn-primary' href="{{path ('choix') }}">ajouter </a>
+    </br>
+        
+    </div>
+    {% endblock %}
+
+
