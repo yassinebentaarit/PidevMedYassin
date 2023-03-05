@@ -1,0 +1,24 @@
+<h1> Liste des reclamations</h1>
+
+
+
+<table border="2">
+
+<tr>
+    <td>nsic </td>
+    <td> classroom_id</td>
+    <td>email </td>
+    <td>etat </td>
+</tr>
+ {% for i in k %}
+ 
+<tr>
+    <td>{{ i.id}} </td>
+    <td> {{ i.nom }}</td>
+    <td>{{ i.email}} </td>
+    
+ <td>{{ i.etat}} </td>
+ 
+
+ {% endfor %}
+</table>
