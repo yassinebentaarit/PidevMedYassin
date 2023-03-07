@@ -1,0 +1,49 @@
+  {% extends 'base.html.twig' %} 
+   
+   
+   
+   {% block body %}
+   
+   
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.1s">
+                    <div class="section-title bg-light rounded h-100 p-5">
+                        <h5 class="position-relative d-inline-block text-primary text-uppercase">our evenets</h5>
+                        <h1 class="display-6 mb-4">Bienvenue sur notre interface evenementielle!</h1>
+                         
+                    </div>
+                </div>
+                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
+                {% for evenement in evenements %}
+                    <div class="team-item">
+                        <div class="position-relative rounded-top" style="z-index: 1;">
+                            <img src= "{{ asset('images/' ~ evenement.image) }}" style="width: 100%; height: auto;" alt="">
+                            
+
+                            <div class="position-absolute top-100 start-50 translate-middle bg-light rounded p-2 d-flex">
+                                
+                            </div>
+                        </div>
+                        <div class="team-text position-relative bg-light text-center rounded-bottom p-4 pt-5">
+                            <h4 class="mb-2">{{ evenement.titre }}</h4>
+                            <h4 class="mb-2">{{ evenement.category }}</h4>
+                            <p class="text-primary mb-0"> {{ evenement.description }}</p>
+                            <p class="text-primary mb-0"> {{ evenement.date ? evenement.date|date('Y-m-d') : '' }}</p>
+                            
+                        </div>
+                         
+                    </div>
+                    {% endfor %}
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+   {% endblock %}
+
+
+   

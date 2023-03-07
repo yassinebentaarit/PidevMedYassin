@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Evenement{% endblock %}
+
+{% block body %}
+    <h1>Evenement</h1>
+
+    <table class="table">
+        <tbody>
+         {% for evenement in evenements %}
+            <tr>
+                <th>id</th>
+                <td>{{ evenement.id }}</td>
+            </tr>
+
+            <tr>
+                <th>titre</th>
+                <td>{{ evenement.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ evenement.description }}</td>
+            </tr>
+            <tr>
+                <th>image</th>
+                <td><img src= "{{ asset('images/' ~ evenement.image) }}" style="width: 100%; height: auto;" alt=""></td>
+            </tr>
+
+                        <tr>
+                <th>date</th>
+                <td>{{ evenement.date ? evenement.date|date('Y-m-d') : '' }}</td>
+            </tr>
+
+                        <tr>
+                <th>Cat</th>
+                <td>{{ evenement.category }}</td>
+            </tr>
+
+            
+
+
+
+<td>
+    <a href="{{ path('app_evenement_edit', {'id': evenement.id}) }}">edit</a>
+  </td>                   
+
+<tr>
+<td>
+    <a href="{{ path('app_evenement_delete', {'id': evenement.id}) }}">delete</a>
+    
+  </td>             
+</tr>
+
+
+<tr>
+<td>
+<br>      
+  </td>             
+</tr>
+
+       {% endfor %}
+               </tbody>
+    </table>
+    <a href="{{ path('app_evenement_index') }}">back to list</a>
+{% endblock %}
